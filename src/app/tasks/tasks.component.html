@@ -1,0 +1,108 @@
+<div class="container">
+  <div class="flex justify-between items-center mb-4">
+    <div class="flex items-center space-x-2">
+      <div class="bg-red-500 p-3 rounded-lg">
+        <mat-icon class="text-white">checklist</mat-icon>
+      </div>
+      <h2 class="text-lg font-semibold">Tasks</h2>
+    </div>
+    <div class="flex space-x-2 mt-2 ">
+      <button
+        class="bg-yellow-500 text-white px-4 py-1 rounded hover:bg-yellow-300"
+        (click)="openDialog()"
+      >
+        New Task
+      </button>
+      <button
+        class="bg-yellow-500 text-white px-4 py-1 rounded hover:bg-yellow-300"
+        (click)="ngOnInit()"
+      >
+        Refresh
+      </button>
+    </div>
+    <div class="relative">
+      <input
+        type="text"
+        placeholder="Search"
+        class="border border-border rounded-lg p-2"
+      />
+      <span class="absolute right-2 top-2 text-muted-foreground"
+        ><mat-icon>search</mat-icon></span
+      >
+    </div>
+  </div>
+
+  <table class="min-w-full border-collapse border border-border">
+    <thead>
+      <tr class="bg-card">
+        <th class="border border-border p-2">Assinged To</th>
+        <th class="border border-border p-2">Status</th>
+        <th class="border border-border p-2">Due Date</th>
+        <th class="border border-border p-2">Priority</th>
+        <th class="border border-border p-2">Comments</th>
+        <th class="border border-border p-2">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(task of tasks; track $index){
+      <tr class="hover:bg-muted">
+        <td class="border border-border p-2">
+          <input type="checkbox" />
+          <span class="user-name ml-2">{{ task.user }}</span>
+        </td>
+        <td class="border border-border p-2">{{ task.status }}</td>
+        <td class="border border-border p-2">{{ task.dueDate }}</td>
+        <td class="border border-border p-2">{{ task.priority }}</td>
+        <td class="border border-border p-2">{{ task.description }}</td>
+
+        <td>
+          <button
+            [routerLink]="'/tasks/' + task._id"
+            class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-300"
+          >
+            Edit
+          </button>
+
+          <button
+            (click)="delete(task._id!)"
+            class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-300"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+
+  <div class="flex justify-between items-center mt-4">
+    <div>
+      <span class="text-muted-foreground">{{ totalRecords }} records</span>
+    </div>
+    <div
+      class="flex items-center justify-center p-2 bg-card border border-border rounded"
+    >
+      <button
+        class="bg-secondary text-secondary-foreground hover:bg-secondary/80 px-2 py-1 rounded-l"
+      >
+        First
+      </button>
+      <button
+        class="bg-secondary text-secondary-foreground hover:bg-secondary/80 px-2 py-1"
+      >
+        Prev
+      </button>
+      <span class="text-muted-foreground px-3">1</span>
+      <button
+        class="bg-secondary text-secondary-foreground hover:bg-secondary/80 px-2 py-1"
+      >
+        Next
+      </button>
+      <button
+        class="bg-secondary text-secondary-foreground hover:bg-secondary/80 px-2 py-1 rounded-r"
+      >
+        Last
+      </button>
+    </div>
+  </div>
+</div>
