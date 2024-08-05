@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { TaskFormComponent } from './task-form.component';
+import { TaskService } from '../../services/task.service';
 
 describe('TaskFormComponent', () => {
   let component: TaskFormComponent;
@@ -8,7 +12,13 @@ describe('TaskFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TaskFormComponent]
+      imports: [
+        ReactiveFormsModule,
+        HttpClientTestingModule,
+        RouterTestingModule,
+        TaskFormComponent
+      ],
+      providers: [TaskService]
     })
     .compileComponents();
     
