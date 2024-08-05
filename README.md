@@ -1,3 +1,6 @@
+-`npm install` hit this command so all the dependecy 
+- `ng serve` command for running project
+
 -In this page you get all task you have.
 ![1](https://github.com/user-attachments/assets/a439933f-86bb-4bc8-872a-cfad7b7fe30e)
 
