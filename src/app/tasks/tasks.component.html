@@ -51,7 +51,7 @@
           <span class="user-name ml-2">{{ task.user }}</span>
         </td>
         <td class="border border-border p-2">{{ task.status }}</td>
-        <td class="border border-border p-2">{{ task.dueDate }}</td>
+        <td class="border border-border p-2">{{ formatDate(task.dueDate) }}</td>
         <td class="border border-border p-2">{{ task.priority }}</td>
         <td class="border border-border p-2">{{ task.description }}</td>
 
@@ -84,22 +84,26 @@
     >
       <button
         class="bg-secondary text-secondary-foreground hover:bg-secondary/80 px-2 py-1 rounded-l"
+        
       >
         First
       </button>
       <button
         class="bg-secondary text-secondary-foreground hover:bg-secondary/80 px-2 py-1"
+        
       >
         Prev
       </button>
       <span class="text-muted-foreground px-3">1</span>
       <button
         class="bg-secondary text-secondary-foreground hover:bg-secondary/80 px-2 py-1"
+        
       >
         Next
       </button>
       <button
         class="bg-secondary text-secondary-foreground hover:bg-secondary/80 px-2 py-1 rounded-r"
+        
       >
         Last
       </button>

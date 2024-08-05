@@ -30,7 +30,7 @@ export class TasksComponent {
   taskService = inject(TaskService);
   totalRecords: number = 0;
   datePipe = inject(DatePipe);
-  
+
 
   constructor(private dialogRef: MatDialog) {}
 
@@ -42,7 +42,7 @@ export class TasksComponent {
     this.taskService.getTasks().subscribe((result) => {
       this.tasks = result;
       this.totalRecords=this.tasks.length;
-      console.log(this.tasks);
+      
     });
   }
 
@@ -56,5 +56,8 @@ export class TasksComponent {
       });
     }
   }
-  
+
+  formatDate(date:Date):string{
+    return this.datePipe.transform(date, 'dd/MM/YYYY') || '';
+  }
 }
